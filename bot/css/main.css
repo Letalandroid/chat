@@ -18,6 +18,8 @@ body {
 }
 
 header {
+    position: relative;
+    z-index: 5;
     display: flex;
     align-items: center;
     width: 100%;
@@ -68,10 +70,18 @@ main input {
 }
 
 .chats {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chats::-webkit-scrollbar {
+    width: 3px;
+    background-color: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background-color: var(--header-color);
 }
 
 .msg {
@@ -91,5 +101,25 @@ main input {
     height: 10px;
     background-color: #07172e;
     transform: rotate(90deg);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.bot {
+    position: relative;
+    background-color: #08254e;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.bot::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: #08254e;
+    transform: rotate(270deg);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
